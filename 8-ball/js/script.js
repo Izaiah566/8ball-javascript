@@ -21,15 +21,19 @@ document.addEventListener("DOMContentLoaded", function () {
         const randomIndex = Math.floor(Math.random() * answers.length);
         const answer = answers[randomIndex];
         blackBall.className='black-ball animate'
-        if ((question.length === 0) && (question.charAt(question.length-1) !== '?'))
+        if (question.length === 0)
         {
             answerDiv.innerHTML = "Please ask a valid yes/no question.";
+            answerDiv.style.fontSize = '1.1rem';
             return;
         }
-        setTimeout(()=>{
-            answerDiv.innerHTML = answer;
-            answerDiv.style.fontSize = '1.1rem'
-            blackBall.className='black-ball'
-        },3000);
+        else
+        {
+            setTimeout(()=>{
+                answerDiv.innerHTML = answer;
+                answerDiv.style.fontSize = '1.1rem';
+                blackBall.className='black-ball';
+            },3000);
+        }
     });
 });
